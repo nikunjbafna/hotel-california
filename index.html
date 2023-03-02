@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel California</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        img {
+            border: 5px solid white;
+        }
+
+        p {
+            font-family: 'Caveat', cursive;
+            text-transform: uppercase;
+        }
+
+        .parallax {
+            height: 100vh;
+            overflow-x: hidden;
+            perspective: 1px;
+            /* top: 50rem; */
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .layer1 {
+            transform: translateZ(0);
+        }
+        
+        .layer2 {
+            transform: translateZ(-0.5px);
+        }
+        
+        .layer3 {
+            transform: translateZ(-1px);
+        }
+
+        /* specific to this implementation */
+        div {
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .parallax-layer.layer1 {
+            /* the base */
+            width: 100%;
+            height: 100rem;
+
+            background-color: black;
+        }
+
+        .parallax-layer.layer2 {
+
+            width: 100%;
+            height: 50rem;
+
+            /* background-color: green; */
+        }
+
+        .parallax-layer.layer3 {
+
+            width: 100%;
+            height: 50rem;
+            /* background-color: blue; */
+        }
+
+        /* https://webdeveloper.com/community/26741-make-borders-hug-text/ */
+        .boxp {
+            text-align: left;
+        }
+
+        .boxs {
+            /* font-size: 16px; */
+            /* font-weight: bold; */
+            width: auto;
+            background-color: whitesmoke;
+            border: 5px solid black;
+            padding: 20px 50px 20px 50px;
+        }
+
+        .boxl {
+            /* font-size: 16px;
+            font-weight: bold; */
+            width: auto;
+            color: whitesmoke;
+            background-color: black;
+            /* border: 5px solid white; */
+            /* padding: 20px 50px 20px 50px; */
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            top: 100rem;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Mouse Styling */
+        .mouse {
+            display: block;
+            width: 28px;
+            height: 48px;
+            border-radius: 11px 11px 15px 15px;
+            border: 1px solid #fff;
+            position: absolute;
+            left: 50%;
+            margin-left: 35rem;
+            z-index: 9999;
+        }
+
+        .mouse span {
+            display: block;
+            margin: 6px auto;
+            width: 2px;
+            height: 5px;
+            border-radius: 4px;
+            background: #fff;
+            border: 1px solid transparent;
+            -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: scroll;
+            animation-name: scroll;
+        }
+
+        @keyframes scroll {
+            0% {
+                opacity: 1;
+                -webkit-transform: translateY(0);
+                -ms-transform: translateY(0);
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                -webkit-transform: translateY(20px);
+                -ms-transform: translateY(20px);
+                transform: translateY(20px);
+            }
+        }
+
+        /* from https://codepen.io/chris_cook/pen/KaMXzE */
+    </style>
+</head>
+
+<body>
+    
+    <audio autoplay>
+        <source src="hcinstrumental.mp3" type="audio/mpeg">
+    </audio>
+    
+    <div class="parallax"> 
+
+        <div class="mouse" style="top: 5rem;">
+            <span></span>
+        </div>
+        
+        <div class="parallax-layer layer1">
+        </div>
+        
+        <div class="parallax-layer layer2">
+            <img src="road.png" alt="">
+        </div>
+
+        <div class="parallax-layer layer2" style="top: 60rem; left: -20rem">
+            <img src="shimmer.png" alt="">
+        </div>
+
+        <div class="parallax-layer layer2" style="top: 120rem; left: 30rem">
+            <img src="hotel.png" alt="">
+        </div>
+
+        <div class="parallax-layer layer3" style="top: -20rem; left: -60rem">
+            <img src="drive.png">
+        </div>
+
+        <div class="parallax-layer layer3" style="top: -20rem; left: 40rem">
+            <p class="boxp"><span class="boxs">On a dark desert highway</span></p>
+            <p class="boxp"><span class="boxs">cool wind in my hair</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 40rem; left: -20rem">
+            <p class="boxp"><span class="boxs">Warm smell of colitas</span></p>
+            <p class="boxp"><span class="boxs">Rising up through the air</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 80rem; left: 60rem">
+            <p class="boxp"><span class="boxs">Up ahead in the distance</span></p>
+            <p class="boxp"><span class="boxs">I saw a shimmering light</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 130rem; left: -40rem">
+            <p class="boxp"><span class="boxs">My head grew heavy and my sight grew dim</span></p>
+            <p class="boxp"><span class="boxs">I had to stop for the night</span></p>
+        </div>
+
+        <div class="parallax-layer layer2" style="top: 170rem; left: -30rem">
+            <img src="doorway.png" alt="" style="width: 50%;">
+        </div>
+
+        <div class="parallax-layer layer3" style="top:30rem; left: 60rem">
+            <img src="tired eyes.png" alt="" style="width: 50%;">
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 210rem; left: 50rem">
+            <img src="confused.png" alt="" style="width: 50%;">
+        </div>
+
+        <div class="parallax-layer layer2" style="top: 310rem; left: -20rem">
+            <img src="corridor.png" alt="" style="width: 120%;">
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 260rem; left: 0rem">
+            <img src="lady.png" alt="" style="width: 40%;">
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 180rem; left: 30rem">
+            <p class="boxp"><span class="boxs">There she stood in the doorway</span></p>
+            <p class="boxp"><span class="boxs">I heard the mission bell</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 220rem; left: -20rem;">
+            <p class="boxp" style="text-align: right;"><span class="boxs">And I was thinking to myself</span></p>
+            <p class="boxp" style="text-align: right;"><span class="boxs">"This could be Heaven or this could be
+                    Hell"</span></p>
+        </div>
+
+        <div class="parallax-layer layer2" style="top: 250rem; left: -40rem">
+            <img src="candle.png" alt="" style="width: 30%;">
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 260rem; left: 0rem">
+            <p class="boxp"><span class="boxs">Then she lit up a candle</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 280rem; left: 60rem">
+            <p class="boxp"><span class="boxs">And she showed me the way</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 330rem; left: 75rem">
+            <p class="boxp"><span class="boxs">There were voices down the corridor</span></p>
+            <p class="boxp"><span class="boxs">Thought I heard them say</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 370rem; left: -40rem; width:200%;">
+            <p style="font-size: 150px;" class="boxp">
+                <span class="boxs">
+                    "Welcome to the hotel California
+                </span>
+            </p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 390rem; left: 70rem">
+            <p class="boxp"><span class="boxs">Such a lovely place, such a lovely face"</span></p>
+        </div>
+
+        <div class="parallax-layer layer3" style="top: 420rem; left: 35rem">
+            <p class="boxp"><span class="boxl">.</span></p>
+            <p class="boxp"><span class="boxl">.</span></p>
+            <p class="boxp"><span class="boxl">.</span></p>
+            <p class="boxp"><span class="boxl">.</span></p>
+            <p class="boxp"><span class="boxl">to be continued</span></p>
+        </div>
+
+    </div>
+</body>
+
+</html>
